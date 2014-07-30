@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />  
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="./js/style.css">
+	<script src="./js/jquery-1.11.1.min.js"></script>
+	<style type="text/css">
+	    body {background-color:#dddddd; }
+	    img {max-width: 20%;max-height: 22%;;float:left}
+	    ul.base {list-style:none;width:80%;margin:1%;margin-left: 10%;}
+	    ul.extend {list-style:none;width:100%; margin:0;padding:0;}
+	    li.base {text-align: left;font-size: 1.05em;margin:3%;}
+	    li.extend {text-align: left;margin-top:4%;}
+	    label {width:17%;text-align:right;float:left;margin-top: 5%}
+	    input{border-radius: 5px;border-color: #d0d0d0;font-size: 1.10em;height:33px;margin:1%;}
+	</style>
+	<script type="text/javascript">
+	    $(function(){
+	    	$("#holder").click(function(){
+	    		window.location.href="holder.html";
+	    	});
+	    	$("#ch").click(function(){
+	    		$("#show").css("display","none");
+	    		$("#edit").css("display","block");
+	    	});
+	    	$("div > .head").click(function(){
+	    		$content="#content"+this.id;
+	    		$image="#im"+this.id;
+	    		if($("div > .head").next().is(":visible")){
+	    			$($image).attr("src","image/down.jpg");
+	    			$($content).css("display","none");
+	    		}else{
+	    			$($image).attr("src","image/up.jpg");
+	    			$($content).css("display","block")
+	    		}
+	    	});
+	    	$("#save").click(function(){
+	    		$("#show").css("display","block");
+	    		$("#edit").css("display","none");
+	    	});
+	    })
+	</script>
+</head>
+<body>
+	<div class="ftp">
+		<img src="./image/logo.jpg"/>
+		<p>我的名片</p>
+		<img class="but" id="card" src="./image/我的名片2.jpg"/>
+		<img class="but" id="holder" src="./image/名片夹1.jpg"/>
+	</div>
+	<div class="fsp"></div>
+	<div id="show">
+		<div class="st">
+			<img src="./image/红叶知弦.jpg"/>
+			<ul class="base">
+				<li class="base" id="name">姓名<a href="#" id="ch" style="float:right;">编辑</a></li>
+				<li class="base" id="job" style="margin-bottom:7%">公司，职务</li>
+			</ul>
+			<ul class="extend">
+				<li class="extend" id="tel">手机</li>
+				<li class="extend" id="email">邮箱</li>
+				<li class="extend" id="qq">QQ</li>
+				<li class="extend" id="weixin">微信</li>
+				<li class="extend" id="skype">skype</li>
+				<li class="extend" id="msn">MSN</li>
+				<li class="extend" id="cad">地址</li>
+				<li class="extend" id="mad">住址</li>
+			</ul>
+		</div>
+		<button>分享</button>
+	</div>
+	<div id="edit" style="display:none">
+		<div class="st" style="padding:3%;">
+			<div class="head" id="1">
+				<p style="margin:1%;">基本信息<img id="im1" style="float:right" src="./image/down.jpg"/></p>
+			</div>
+			<div id="content1" style="display:none">
+				<form>
+			        <label>姓名:</label><input style="width:72%;" type="text" id="ename" />
+			        <label>公司:</label><input style="width:72%;" type="text" id="ecompany" />
+			        <label>职务:</label><input style="width:72%;" type="email" id="ejob" />
+			        <label>手机:</label><input style="width:72%;" type="text" id="etel" />
+			        <label>邮箱:</label><input style="width:72%;" type="text" id="eemail"/>
+				</form>
+			</div>
+		</div>
+		<div class="st" style="padding:3%;">
+			<div class="head" id="2">
+				<p style="margin:1%;">网络通讯<img id="im2" style="float:right" src="./image/down.jpg"/></p>
+			</div>
+			<div  id="content2" style="display:none">
+				<form>
+			        <label>QQ:</label><input style="width:72%;" type="text" id="eqq"/>
+			        <label>微信:</label><input style="width:72%;" type="text" id="eweixin"/>
+			        <label>skype:</label><input style="width:72%;" type="email" id="esky"/>
+			        <label>MSN:</label><input style="width:72%;" type="text" id="emsn"/>
+				</form>
+			</div>
+		</div>
+		<div class="st" style="padding:3%;">
+			<div class="head" id="3">
+				<p style="margin:1%;">地址信息<img id="im3" style="float:right" src="./image/down.jpg"/></p>
+			</div>
+			<div id="content3" style="display:none">
+				<form>
+			        <label style="width:25%;font-size:0.95em">公司地址:</label><input style="width:64%;" type="text" id="ecad"/>
+			        <label style="width:25%;font-size:0.95em">个人住址:</label><input style="width:64%;" type="text" id="emad"/>
+				</form>
+			</div>
+		</div>
+		<button id="save" type="submit">保存</button>
+	</div>
+</body>
+</html>
